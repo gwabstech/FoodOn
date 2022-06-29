@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/loginbackground"
-    tools:context="my.food_on.app.Registeration">
+    tools:context=".Registeration">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -217,19 +217,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp" />
 
-            <TextView
-                android:id="@+id/txt5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Suburban"
-                android:textSize="15dp" />
 
-            <Spinner
-                android:id="@+id/Suburban"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp" />
 
 
             <Button

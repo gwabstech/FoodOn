@@ -74,7 +74,7 @@ public class ChefRegisteration extends AppCompatActivity {
         postcode = (TextInputLayout) findViewById(R.id.Postcode);
         statespin = (Spinner) findViewById(R.id.Statee);
         Cityspin = (Spinner) findViewById(R.id.Citys);
-        Suburban = (Spinner) findViewById(R.id.Suburban);
+
         signup = (Button) findViewById(R.id.Signup);
         Emaill = (Button) findViewById(R.id.emaill);
         Phone = (Button) findViewById(R.id.phone);

@@ -32,21 +32,8 @@ import java.util.HashMap;
 
 public class Registeration extends AppCompatActivity {
 
-    String[] Maharashtra = {"Mumbai", "Pune", "Aurangabad"};
-    String[] Gujarat = {"Ahemdabad", "Rajkot", "Surat"};
+    String[] kaduna = {"Kadpoly Main Campus", "CBMS", "SABO"};
 
-
-    String[] Mumbai = {"Churchgate", "Marine Lines", "Charni Road", "Grant Road", "Mumbai Central", "Mahalakshmi", "Lower Parel", "Prabhadevi",
-            "Dadar", "Matunga", "Mahim", "Bandra", "Khar", "Santacruz", "Vile Parle", "Andheri", "Jogeshwari", "Ram Mandir",
-            "Goregaon", "Malad", "Kandivai", "Borivali", "Dahisar", "MiraRoad", "Bhayander", "Naigaon", "Vasai Road", "Nalla Sopara", "Virar"};
-
-
-    String[] Pune = {"Hinjewadi", "Wagholi", " Ambegaon", "Undri", "Katraj"};
-    String[] Aurangabad = {"Aarif Colony", "Baiji Pura", "Balaji Nagar", "Angoori Bagh"};
-
-    String[] Ahemdabad={"Mani Nagar","Thaltej","Prahlad Nagar","Gandhinagar"};
-    String[] Surat={"Agnovad","Akoti","Amroli","Athwalines"};
-    String[] Rajkot={"Kalawad Road","Astron chowk","Kotecha chowk","Trikon bag"};
 
     TextInputLayout fname, lname, localadd, emaill, pass, cmpass, Mobileno;
     Spinner statespin, City, Suburban;
@@ -86,7 +73,7 @@ public class Registeration extends AppCompatActivity {
             Signin = (Button) findViewById(R.id.button);
             statespin = (Spinner) findViewById(R.id.Statee);
             City = (Spinner) findViewById(R.id.Citys);
-            Suburban = (Spinner) findViewById(R.id.Suburban);
+
             Mobileno = (TextInputLayout) findViewById(R.id.Mobilenumber);
             Cpp = (CountryCodePicker) findViewById(R.id.CountryCode);
             Email = (Button) findViewById(R.id.emaill);
@@ -98,23 +85,14 @@ public class Registeration extends AppCompatActivity {
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                     Object value = parent.getItemAtPosition(position);
                     statee = value.toString().trim();
-                    if (statee.equals("Maharashtra")) {
+                    if (statee.equals("Kaduna")) {
                         ArrayList<String> list = new ArrayList<>();
-                        for (String text : Maharashtra) {
+                        for (String text : kaduna) {
                             list.add(text);
                         }
                         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, list);
-
                         City.setAdapter(arrayAdapter);
-                    }
-                    if (statee.equals("Gujarat")) {
-                        ArrayList<String> list = new ArrayList<>();
-                        for (String text : Gujarat) {
-                            list.add(text);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, list);
 
-                        City.setAdapter(arrayAdapter);
                     }
 
                 }
@@ -125,82 +103,6 @@ public class Registeration extends AppCompatActivity {
                 }
             });
 
-            City.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Object value = parent.getItemAtPosition(position);
-                    cityy = value.toString().trim();
-                    if (cityy.equals("Mumbai")) {
-                        ArrayList<String> listt = new ArrayList<>();
-                        for (String text : Mumbai) {
-                            listt.add(text);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, listt);
-                        Suburban.setAdapter(arrayAdapter);
-                    }
-
-                    if (cityy.equals("Pune")) {
-                        ArrayList<String> listt = new ArrayList<>();
-                        for (String text : Pune) {
-                            listt.add(text);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, listt);
-                        Suburban.setAdapter(arrayAdapter);
-                    }
-
-                    if (cityy.equals("Aurangabad")) {
-                        ArrayList<String> listt = new ArrayList<>();
-                        for (String text : Aurangabad) {
-                            listt.add(text);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, listt);
-                        Suburban.setAdapter(arrayAdapter);
-                    }
-
-                    if (cityy.equals("Ahemdabad")) {
-                        ArrayList<String> listt = new ArrayList<>();
-                        for (String text : Ahemdabad) {
-                            listt.add(text);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, listt);
-                        Suburban.setAdapter(arrayAdapter);
-                    }
-                    if (cityy.equals("Surat")) {
-                        ArrayList<String> listt = new ArrayList<>();
-                        for (String text : Surat) {
-                            listt.add(text);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, listt);
-                        Suburban.setAdapter(arrayAdapter);
-                    }
-                    if (cityy.equals("Rajkot")) {
-                        ArrayList<String> listt = new ArrayList<>();
-                        for (String text : Rajkot) {
-                            listt.add(text);
-                        }
-                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Registeration.this, android.R.layout.simple_spinner_item, listt);
-                        Suburban.setAdapter(arrayAdapter);
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
-
-            Suburban.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Object value = parent.getItemAtPosition(position);
-                    suburban = value.toString().trim();
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-
-                }
-            });
 
 
             databaseReference = firebaseDatabase.getInstance().getReference("Customer");
