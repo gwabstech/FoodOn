@@ -114,6 +114,8 @@
                 <com.hbb20.CountryCodePicker
                     android:id="@+id/CountryCode"
                     android:layout_width="120dp"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_rememberLastSelection="true"
                     android:layout_height="match_parent" />
 
                 <com.google.android.material.textfield.TextInputLayout

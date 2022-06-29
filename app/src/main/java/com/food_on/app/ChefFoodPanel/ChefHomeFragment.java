@@ -2,6 +2,7 @@ package com.food_on.app.ChefFoodPanel;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -77,7 +78,7 @@ public class ChefHomeFragment extends Fragment {
     private void chefDishes() {
 
         String useridd = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child(State).child("Kaduna").child("Kadpoly").child(useridd);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child(State).child("Kadpoly").child("MainCampus").child(useridd);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -94,6 +95,7 @@ public class ChefHomeFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                Log.i("TAG",databaseError.getDetails().toString());
             }
         });
 

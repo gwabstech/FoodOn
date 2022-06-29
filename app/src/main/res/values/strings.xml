@@ -15,10 +15,11 @@
     </string-array>
 
     <string-array name="DishName">
-        <item>Rice</item>
-        <item>Dal Rice</item>
+        <item>Burger</item>
+        <item>Marc Dee</item>
         <item>Waina</item>
         <item>Chips and eggs</item>
-        <item>Pounded yam</item>
+        <item>Spring Rolls</item>
+        <item>Samosa</item>
     </string-array>
 </resources>

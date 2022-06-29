@@ -67,7 +67,7 @@ public class ChefPendingOrdersAdapter extends RecyclerView.Adapter<ChefPendingOr
 
         final ChefPendingOrders1 chefPendingOrders1 = chefPendingOrders1list.get(position);
         holder.Address.setText(chefPendingOrders1.getAddress());
-        holder.grandtotalprice.setText("GrandTotal: ₹ " + chefPendingOrders1.getGrandTotalPrice());
+        holder.grandtotalprice.setText("GrandTotal: ₦ " + chefPendingOrders1.getGrandTotalPrice());
         final String random = chefPendingOrders1.getRandomUID();
         holder.Vieworder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +107,7 @@ public class ChefPendingOrdersAdapter extends RecyclerView.Adapter<ChefPendingOr
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 ChefPendingOrders1 chefPendingOrders1 = dataSnapshot.getValue(ChefPendingOrders1.class);
                                 HashMap<String, String> hashMap1 = new HashMap<>();
-                                hashMap1.put("Address", chefPendingOrders1.getAddress());
+                                hashMap1.put("Address", " ");
                                 hashMap1.put("GrandTotalPrice", chefPendingOrders1.getGrandTotalPrice());
                                 hashMap1.put("MobileNumber", chefPendingOrders1.getMobileNumber());
                                 hashMap1.put("Name", chefPendingOrders1.getName());

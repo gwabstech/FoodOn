@@ -1,6 +1,7 @@
 package com.food_on.app.CustomerFoodPanel;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -71,9 +72,9 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         Customer cust = dataSnapshot.getValue(Customer.class);
-                        State = cust.getState();
-                        City = cust.getCity();
-                        Sub = cust.getSuburban();
+                        State = "Kaduna";
+                        City = "Kadpoly";
+                        Sub = "MainCampus";
                         customermenu();
                     }
 
@@ -92,47 +93,65 @@ public class CustomerHomeFragment extends Fragment implements SwipeRefreshLayout
     @Override
     public void onRefresh() {
 
-        customermenu();
+        try {
+            customermenu();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     private void customermenu() {
 
         swipeRefreshLayout.setRefreshing(true);
-        databaseReference = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child(State).child(City).child(Sub);
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                updateDishModelList.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                        UpdateDishModel updateDishModel = snapshot1.getValue(UpdateDishModel.class);
-                        updateDishModelList.add(updateDishModel);
+        try {
+
+            databaseReference = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child("Kaduna").child("Kadpoly").child("MainCampus");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    updateDishModelList.clear();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                            Log.i("TAG",snapshot1.toString());
+                            UpdateDishModel updateDishModel = snapshot1.getValue(UpdateDishModel.class);
+                            updateDishModelList.add(updateDishModel);
+                        }
                     }
+
+                    try {
+                        adapter = new CustomerHomeAdapter(getContext(), updateDishModelList);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                    recyclerView.setAdapter(adapter);
+                    swipeRefreshLayout.setRefreshing(false);
+
                 }
-                adapter = new CustomerHomeAdapter(getContext(), updateDishModelList);
-                recyclerView.setAdapter(adapter);
-                swipeRefreshLayout.setRefreshing(false);
 
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            });
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
 
-                swipeRefreshLayout.setRefreshing(false);
-            }
-        });
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    search(newText);
+                    return true;
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                search(newText);
-                return true;
-            }
-        });
 
     }
 

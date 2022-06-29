@@ -31,17 +31,10 @@ import java.util.HashMap;
 
 public class Delivery_registeration extends AppCompatActivity {
 
-    String[] Maharashtra = {"Mumbai", "Pune", "Aurangabad"};
-    String[] Gujarat = {"Ahemdabad", "Rajkot", "Surat"};
+    String[] kaduna = {"Kadpoly Main Campus", "CBMS", "SABO"};
 
 
-    String[] Mumbai = {"Churchgate", "Marine Lines", "Charni Road", "Grant Road", "Mumbai Central", "Mahalakshmi", "Lower Parel", "Prabhadevi",
-            "Dadar", "Matunga", "Mahim", "Bandra", "Khar", "Santacruz", "Vile Parle", "Andheri", "Jogeshwari", "Ram Mandir",
-            "Goregaon", "Malad", "Kandivai", "Borivali", "Dahisar", "MiraRoad", "Bhayander", "Naigaon", "Vasai Road", "Nalla Sopara", "Virar"};
 
-
-    String[] Pune = {"Hinjewadi", "Wagholi", " Ambegaon", "Undri", "Katraj"};
-    String[] Aurangabad = {"Aarif Colony", "Baiji Pura", "Balaji Nagar", "Angoori Bagh"};
 
 
     TextInputLayout Fname, Lname, Pass, cfpass, mobileno, houseno, area, postcode, Email;
@@ -52,7 +45,7 @@ public class Delivery_registeration extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth FAuth;
     String role = "DeliveryPerson";
-    String statee, cityy, suburban, fname, lname, mobile, confirmpassword, password, Area, Postcode, house, emailid;
+    String statee, cityy, fname, lname, mobile, confirmpassword, password, Area, Postcode, house, emailid;
 
 
     @Override
@@ -72,7 +65,6 @@ public class Delivery_registeration extends AppCompatActivity {
         statespin = (Spinner) findViewById(R.id.State);
         Cityspin = (Spinner) findViewById(R.id.City);
         Emaill = (Button) findViewById(R.id.emaillid);
-        Suburban = (Spinner) findViewById(R.id.suburban);
         signup = (Button) findViewById(R.id.Signupp);
         Phone = (Button) findViewById(R.id.Phonenumber);
         Cpp = (CountryCodePicker) findViewById(R.id.ctrycode);
@@ -86,24 +78,16 @@ public class Delivery_registeration extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Object value = parent.getItemAtPosition(position);
                 statee = value.toString().trim();
-                if (statee.equals("Maharashtra")) {
+
                     ArrayList<String> list = new ArrayList<>();
-                    for (String text : Maharashtra) {
+                    for (String text : kaduna) {
                         list.add(text);
                     }
                     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Delivery_registeration.this, android.R.layout.simple_spinner_item, list);
 
                     Cityspin.setAdapter(arrayAdapter);
-                }
-                if (statee.equals("Gujarat")) {
-                    ArrayList<String> list = new ArrayList<>();
-                    for (String text : Gujarat) {
-                        list.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Delivery_registeration.this, android.R.layout.simple_spinner_item, list);
 
-                    Cityspin.setAdapter(arrayAdapter);
-                }
+
 
             }
 
@@ -118,32 +102,7 @@ public class Delivery_registeration extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Object value = parent.getItemAtPosition(position);
                 cityy = value.toString().trim();
-                if (cityy.equals("Mumbai")) {
-                    ArrayList<String> listt = new ArrayList<>();
-                    for (String text : Mumbai) {
-                        listt.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Delivery_registeration.this, android.R.layout.simple_spinner_item, listt);
-                    Suburban.setAdapter(arrayAdapter);
-                }
 
-                if (cityy.equals("Pune")) {
-                    ArrayList<String> listt = new ArrayList<>();
-                    for (String text : Pune) {
-                        listt.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Delivery_registeration.this, android.R.layout.simple_spinner_item, listt);
-                    Suburban.setAdapter(arrayAdapter);
-                }
-
-                if (cityy.equals("Aurangabad")) {
-                    ArrayList<String> listt = new ArrayList<>();
-                    for (String text : Aurangabad) {
-                        listt.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(Delivery_registeration.this, android.R.layout.simple_spinner_item, listt);
-                    Suburban.setAdapter(arrayAdapter);
-                }
             }
 
             @Override
@@ -152,18 +111,7 @@ public class Delivery_registeration extends AppCompatActivity {
             }
         });
 
-        Suburban.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Object value = parent.getItemAtPosition(position);
-                suburban = value.toString().trim();
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
         databaseReference = firebaseDatabase.getInstance().getReference("DeliveryPerson");
         FAuth = FirebaseAuth.getInstance();
 
@@ -211,7 +159,7 @@ public class Delivery_registeration extends AppCompatActivity {
                                         hashMappp.put("Password", password);
                                         hashMappp.put("Postcode", Postcode);
                                         hashMappp.put("State", statee);
-                                        hashMappp.put("Suburban", suburban);
+                                        hashMappp.put("Suburban", " ");
                                         firebaseDatabase.getInstance().getReference("DeliveryPerson").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(hashMappp).addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                             @Override

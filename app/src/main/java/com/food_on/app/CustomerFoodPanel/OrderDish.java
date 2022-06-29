@@ -66,13 +66,13 @@ public class OrderDish extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Customer cust = dataSnapshot.getValue(Customer.class);
                 State = cust.getState();
-                City = cust.getCity();
-                Sub = cust.getSuburban();
+                City = "Kadpoly";
+                Sub = "MainCampus";
 
                 RandomId = getIntent().getStringExtra("FoodMenu");
                 ChefID = getIntent().getStringExtra("ChefId");
 
-                databaseReference = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child(State).child(City).child(Sub).child(ChefID).child(RandomId);
+                databaseReference = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child(State).child("Kadpoly").child("MainCampus").child(ChefID).child(RandomId);
                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -82,7 +82,7 @@ public class OrderDish extends AppCompatActivity {
                         FoodQuantity.setText(Html.fromHtml(qua));
                         String ss = "<b>" + "Description: " + "</b>" + updateDishModel.getDescription();
                         FoodDescription.setText(Html.fromHtml(ss));
-                        String pri = "<b>" + "Price: ₹ " + "</b>" + updateDishModel.getPrice();
+                        String pri = "<b>" + "Price: ₦ " + "</b>" + updateDishModel.getPrice();
                         FoodPrice.setText(Html.fromHtml(pri));
                         Glide.with(OrderDish.this).load(updateDishModel.getImageURL()).into(imageView);
 
@@ -209,7 +209,7 @@ public class OrderDish extends AppCompatActivity {
                                         alert.show();
                                     }
                                 } else {
-                                data = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child(State).child(City).child(Sub).child(ChefID).child(RandomId);
+                                data = FirebaseDatabase.getInstance().getReference("FoodSupplyDetails").child(State).child("Kadpoly").child(Sub).child(ChefID).child(RandomId);
                                 data.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -91,8 +91,8 @@ public class Update_Delete_Dish extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Chef chefc = dataSnapshot.getValue(Chef.class);
                 State = chefc.getState();
-                City = chefc.getCity();
-                Sub = chefc.getSuburban();
+                City = "Kadpoly";
+                Sub = "MainCampus";
 
                 Update_dish.setOnClickListener(new View.OnClickListener() {
                     @Override

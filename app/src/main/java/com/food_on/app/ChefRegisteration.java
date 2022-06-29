@@ -107,8 +107,8 @@ public class ChefRegisteration extends AppCompatActivity {
         Cityspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               // Object value = parent.getItemAtPosition(position);
-
+                Object value = parent.getItemAtPosition(position);
+                cityy = value.toString().trim();
             }
 
             @Override
