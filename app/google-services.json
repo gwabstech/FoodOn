@@ -1,42 +1,92 @@
 {
   "project_info": {
-    "project_number": "653970606470",
-    "firebase_url": "https://home-food-d1480.firebaseio.com",
-    "project_id": "home-food-d1480",
-    "storage_bucket": "home-food-d1480.appspot.com"
+    "project_number": "795014602853",
+    "firebase_url": "https://food-ordering-system-8da3c-default-rtdb.firebaseio.com",
+    "project_id": "food-ordering-system-8da3c",
+    "storage_bucket": "food-ordering-system-8da3c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:653970606470:android:cc796d987750f5dd854407",
+        "mobilesdk_app_id": "1:795014602853:android:257aef36f7f952c7c4a68c",
         "android_client_info": {
           "package_name": "com.food_on.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "653970606470-3b1j10tljjgkteb3u24a2ll6f04vnknr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.food_on.app",
-            "certificate_hash": "296b111eedc4be4b20e4e00844b78232cf55d6f6"
-          }
-        },
-        {
-          "client_id": "653970606470-ic15kn8imut1u1r27kbm9nqsuejuqkgu.apps.googleusercontent.com",
+          "client_id": "795014602853-6gf633n66c7mbevci40tigmnkl6kk7mh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAMIth1iLHCqXEOap_y3yOZtqYe8LVaIow"
+          "current_key": "AIzaSyASDfMvHHooSE5sjZ3ADmUQvm19p-fm-3o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "653970606470-ic15kn8imut1u1r27kbm9nqsuejuqkgu.apps.googleusercontent.com",
+              "client_id": "795014602853-6gf633n66c7mbevci40tigmnkl6kk7mh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795014602853:android:05b7bc030664396fc4a68c",
+        "android_client_info": {
+          "package_name": "com.gwabs.foodorderingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795014602853-6gf633n66c7mbevci40tigmnkl6kk7mh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASDfMvHHooSE5sjZ3ADmUQvm19p-fm-3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795014602853-6gf633n66c7mbevci40tigmnkl6kk7mh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795014602853:android:660e421281c599edc4a68c",
+        "android_client_info": {
+          "package_name": "com.gwabs.storefront"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795014602853-6gf633n66c7mbevci40tigmnkl6kk7mh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASDfMvHHooSE5sjZ3ADmUQvm19p-fm-3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795014602853-6gf633n66c7mbevci40tigmnkl6kk7mh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

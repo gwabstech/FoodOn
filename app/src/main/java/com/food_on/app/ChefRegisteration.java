@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.food_on.app.R;
 import com.food_on.app.ReusableCode.ReusableCodeForAll;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,17 +30,11 @@ import java.util.HashMap;
 
 public class ChefRegisteration extends AppCompatActivity {
 
-    String[] Maharashtra = {"Mumbai", "Pune", "Aurangabad"};
-    String[] Gujarat = {"Ahemdabad", "Rajkot", "Surat"};
+    String[] kaduna = {"Kadpoly Main Campus", "CBMS", "SABO"};
 
 
-    String[] Mumbai = {"Churchgate", "Marine Lines", "Charni Road", "Grant Road", "Mumbai Central", "Mahalakshmi", "Lower Parel", "Prabhadevi",
-            "Dadar", "Matunga", "Mahim", "Bandra", "Khar", "Santacruz", "Vile Parle", "Andheri", "Jogeshwari", "Ram Mandir",
-            "Goregaon", "Malad", "Kandivai", "Borivali", "Dahisar", "MiraRoad", "Bhayander", "Naigaon", "Vasai Road", "Nalla Sopara", "Virar"};
 
 
-    String[] Pune = {"Hinjewadi", "Wagholi", " Ambegaon", "Undri", "Katraj"};
-    String[] Aurangabad = {"Aarif Colony", "Baiji Pura", "Balaji Nagar", "Angoori Bagh"};
 
     TextInputLayout Fname, Lname, Email, Pass, cfpass, mobileno, houseno, area, postcode;
     Spinner statespin, Cityspin, Suburban;
@@ -93,18 +86,9 @@ public class ChefRegisteration extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Object value = parent.getItemAtPosition(position);
                 statee = value.toString().trim();
-                if (statee.equals("Maharashtra")) {
+                if (statee.equals("Kaduna")) {
                     ArrayList<String> list = new ArrayList<>();
-                    for (String text : Maharashtra) {
-                        list.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ChefRegisteration.this, android.R.layout.simple_spinner_item, list);
-
-                    Cityspin.setAdapter(arrayAdapter);
-                }
-                if (statee.equals("Gujarat")) {
-                    ArrayList<String> list = new ArrayList<>();
-                    for (String text : Gujarat) {
+                    for (String text : kaduna) {
                         list.add(text);
                     }
                     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ChefRegisteration.this, android.R.layout.simple_spinner_item, list);
@@ -123,34 +107,8 @@ public class ChefRegisteration extends AppCompatActivity {
         Cityspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Object value = parent.getItemAtPosition(position);
-                cityy = value.toString().trim();
-                if (cityy.equals("Mumbai")) {
-                    ArrayList<String> listt = new ArrayList<>();
-                    for (String text : Mumbai) {
-                        listt.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ChefRegisteration.this, android.R.layout.simple_spinner_item, listt);
-                    Suburban.setAdapter(arrayAdapter);
-                }
+               // Object value = parent.getItemAtPosition(position);
 
-                if (cityy.equals("Pune")) {
-                    ArrayList<String> listt = new ArrayList<>();
-                    for (String text : Pune) {
-                        listt.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ChefRegisteration.this, android.R.layout.simple_spinner_item, listt);
-                    Suburban.setAdapter(arrayAdapter);
-                }
-
-                if (cityy.equals("Aurangabad")) {
-                    ArrayList<String> listt = new ArrayList<>();
-                    for (String text : Aurangabad) {
-                        listt.add(text);
-                    }
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(ChefRegisteration.this, android.R.layout.simple_spinner_item, listt);
-                    Suburban.setAdapter(arrayAdapter);
-                }
             }
 
             @Override
@@ -159,18 +117,7 @@ public class ChefRegisteration extends AppCompatActivity {
             }
         });
 
-        Suburban.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Object value = parent.getItemAtPosition(position);
-                suburban = value.toString().trim();
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         databaseReference = firebaseDatabase.getInstance().getReference("Chef");
         FAuth = FirebaseAuth.getInstance();
