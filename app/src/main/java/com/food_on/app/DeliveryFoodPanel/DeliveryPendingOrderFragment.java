@@ -82,9 +82,15 @@ public class DeliveryPendingOrderFragment extends Fragment {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 DeliveryShipOrders1 deliveryShipOrders1 = dataSnapshot.getValue(DeliveryShipOrders1.class);
                                 deliveryShipOrders1List.add(deliveryShipOrders1);
-                                adapter = new DeliveryPendingOrderFragmentAdapter(getContext(), deliveryShipOrders1List);
-                                recyclerView.setAdapter(adapter);
-                                swipeRefreshLayout.setRefreshing(false);
+
+                                try {
+                                    adapter = new DeliveryPendingOrderFragmentAdapter(getContext(), deliveryShipOrders1List);
+                                    recyclerView.setAdapter(adapter);
+                                    swipeRefreshLayout.setRefreshing(false);
+                                }catch (Exception e){
+                                    e.printStackTrace();
+                                }
+
                             }
 
                             @Override
