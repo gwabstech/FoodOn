@@ -13,9 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fe4fbf5-1966-4bfc-a668-e9695dc1a936" name="Changes" comment="food on done">
-      <change beforePath="$PROJECT_DIR$/Food On-com.food_on.app-1.0-1.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app-debug.apk" afterDir="false" />
-    </list>
+    <list default="true" id="0fe4fbf5-1966-4bfc-a668-e9695dc1a936" name="Changes" comment="food on done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +51,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\abdul\StudioProjects\FoodOn_FoodDelivery_by_musa" />
       <recent name="C:\Users\abdul\StudioProjects\FoodOn_FoodDelivery_by_Androrealm\app" />
     </key>
   </component>
@@ -180,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657012163280</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="food on done">
+      <created>1657012381866</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1657012381866</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
