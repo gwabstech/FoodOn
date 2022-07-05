@@ -13,7 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fe4fbf5-1966-4bfc-a668-e9695dc1a936" name="Changes" comment="food on" />
+    <list default="true" id="0fe4fbf5-1966-4bfc-a668-e9695dc1a936" name="Changes" comment="food on done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656948870716</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="food on done">
+      <created>1657011500371</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657011500371</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +174,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="food on" />
-    <option name="LAST_COMMIT_MESSAGE" value="food on" />
+    <MESSAGE value="food on done" />
+    <option name="LAST_COMMIT_MESSAGE" value="food on done" />
   </component>
 </project>
